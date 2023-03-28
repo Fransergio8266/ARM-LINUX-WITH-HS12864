@@ -1,0 +1,12 @@
+#DOWNLOAD REPOSITORY FROM https://github.com/olikraus/u8g2/tree/master/sys/arm-linux
+
+#DO 
+git submodule update --init --recursive
+
+# SET ENVIRONMENT
+export ARCH=arm
+export CROSS_COMPILER=/home/user/gcc-arm-9.2-2019.12-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc
+export PATH=~/gcc/bin/:$PATH
+
+#GENERATE EXECUTABLES IN FOLD ARM-LINUX
+make CPPFLAGS=-DPERIPHERY_GPIO_CDEV_SUPPORT=1 CC=$CROSS_COMPILER
